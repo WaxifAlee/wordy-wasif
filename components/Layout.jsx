@@ -1,84 +1,28 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Link from "next/link";
-import {
-  faFacebook,
-  faGithub,
-  faInstagram,
-  faYoutube,
-} from "@fortawesome/free-brands-svg-icons";
+import Nav from "./Nav";
+import Head from "next/head";
 
 const Layout = () => {
-  const pagesLinks = [
-    {
-      path: "/",
-      name: "Home",
-    },
-    {
-      path: "/about",
-      name: "About",
-    },
-    {
-      path: "/blog",
-      name: "Blog",
-    },
-    {
-      path: "/contact",
-      name: "Contact",
-    },
-  ];
-
-  const socialMediaIcons = [
-    {
-      icon: faFacebook,
-      path: "https://www.facebook.com/Waxif.Alee",
-    },
-    {
-      icon: faGithub,
-      path: "https://www.github.com/WaxifAlee",
-    },
-    {
-      icon: faInstagram,
-      path: "https://instagram.com/Waxif.Alee",
-    },
-    {
-      icon: faYoutube,
-      path: "https://www.youtube.com/channel/UCTpzt54KWDRP_4icWkHo04Q",
-    },
-  ];
-
   return (
-    <div>
-      <div className="header">
-        <nav>
-          <div className="logo">WORDY WASIF</div>
+    <>
+      <Head key="layout">
+        <meta name="title" content="Wordy Wasif" />
+        <meta
+          name="description"
+          content="The personal portfolio and blog of Wasif Ali. A Pianist, Programmer, and Guitarist. Here I write my thoughts and I've also listed my skills."
+        />
+        <meta
+          name="keywords"
+          content="programmer portfolio, developer portfolio, blog, pianist, wordy wasif, wasif ali"
+        />
+        <meta name="robots" content="index, follow" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="language" content="English" />
+        <meta name="revisit-after" content="1 days" />
+        <meta name="author" content="Wasif Ali"></meta>
+      </Head>
 
-          <div className="page-links">
-            <ul>
-              {pagesLinks.map((link) => (
-                <li key={pagesLinks.indexOf(link)}>
-                  <a href={link.path}>{link.name}</a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div className="social-media-icons">
-            <ul>
-              {socialMediaIcons.map((icon) => (
-                <li key={socialMediaIcons.indexOf(icon)}>
-                  <Link href={icon.path}>
-                    <FontAwesomeIcon
-                      style={{ fontSize: "20px" }}
-                      icon={icon.icon}
-                    />
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </nav>
-      </div>
-    </div>
+      <Nav />
+    </>
   );
 };
 
