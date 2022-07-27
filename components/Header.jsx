@@ -1,9 +1,10 @@
 import Nav from "./Nav";
 import Head from "next/head";
 
-const Layout = () => {
+const Header = () => {
   return (
     <>
+      {/* // SEO META TAGS */}
       <Head key="layout">
         <meta name="title" content="Wordy Wasif" />
         <meta
@@ -15,7 +16,7 @@ const Layout = () => {
           content="programmer portfolio, developer portfolio, blog, pianist, wordy wasif, wasif ali"
         />
         <meta name="robots" content="index, follow" />
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="language" content="English" />
         <meta name="revisit-after" content="1 days" />
         <meta name="author" content="Wasif Ali"></meta>
@@ -26,4 +27,4 @@ const Layout = () => {
   );
 };
 
-export default Layout;
+export default Header;

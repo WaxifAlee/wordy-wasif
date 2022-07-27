@@ -1,11 +1,14 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
+import "animate.css";
 import {
   faFacebook,
   faGithub,
   faInstagram,
   faYoutube,
 } from "@fortawesome/free-brands-svg-icons";
+
+import navStyles from "../styles/Nav.module.css";
 
 const Nav = () => {
   const pagesLinks = [
@@ -46,37 +49,47 @@ const Nav = () => {
     },
   ];
   return (
-    <div>
-      <div className="header">
-        <nav>
-          <div className="logo">WORDY WASIF</div>
+    <div className={navStyles.header}>
+      <nav className={navStyles.nav}>
+        <div className={navStyles.logo}>
+          <b>
+            <Link className={navStyles.logo} href={"/"}>
+              WORDY WASIF
+            </Link>
+          </b>
+        </div>
 
-          <div className="page-links">
-            <ul>
-              {pagesLinks.map((link) => (
-                <li key={pagesLinks.indexOf(link)}>
-                  <a href={link.path}>{link.name}</a>
-                </li>
-              ))}
-            </ul>
-          </div>
+        <div className={navStyles.pagesLinks}>
+          <ul>
+            {pagesLinks.map((link) => (
+              <li key={pagesLinks.indexOf(link)}>
+                <b>
+                  <Link href={link.path}>{link.name}</Link>
+                </b>
+              </li>
+            ))}
+          </ul>
+        </div>
 
-          <div className="social-media-icons">
-            <ul>
-              {socialMediaIcons.map((icon) => (
-                <li key={socialMediaIcons.indexOf(icon)}>
-                  <Link href={icon.path}>
-                    <FontAwesomeIcon
-                      style={{ fontSize: "20px" }}
-                      icon={icon.icon}
-                    />
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </nav>
-      </div>
+        <div className={navStyles.brandIcons}>
+          <ul>
+            {socialMediaIcons.map((icon) => (
+              <li key={socialMediaIcons.indexOf(icon)}>
+                <Link
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  href={icon.path}
+                >
+                  <FontAwesomeIcon
+                    style={{ fontSize: "20px", cursor: "pointer" }}
+                    icon={icon.icon}
+                  />
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </nav>
     </div>
   );
 };
